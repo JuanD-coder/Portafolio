@@ -1,7 +1,7 @@
 # My personal website (=w=)
 
 ### 📟 Software Developer // Android & Backend
-I am **Juan David** (JuanD-coder), a developer from **Colombia 🇨🇴** focused on building high-performance mobile apps and scalable backend systems.
+I am **Juan David**, a developer from **Colombia 🇨🇴** focused on building high-performance mobile apps and scalable backend systems.
 
 ---
 
