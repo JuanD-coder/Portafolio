@@ -1,6 +1,7 @@
 "use client"
 
 import { TerminalSquare } from "lucide-react"
+import { AndroidMascot } from "./android-mascot"
 
 export function Skills() {
   // Ordenado lógicamente: Lenguajes -> Frameworks -> BD -> Herramientas/IDEs
@@ -60,15 +61,23 @@ export function Skills() {
           [ CORE_STACK_MODULE ]
         </div>
         
-        <div className="flex flex-wrap gap-3 md:gap-5 mt-4 justify-start">
-          {orderedSkills.map(skill => (
-            <img 
-              key={skill.name}
-              src={skill.icon} 
-              alt={skill.name} 
-              className="h-8 md:h-10 w-auto transition-all cursor-crosshair transform hover:scale-110 hover:-translate-y-1 hover:shadow-[0_4px_10px_rgba(255,0,255,0.5)]" 
-            />
-          ))}
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
+          <div className="shrink-0 pt-4 animate-fade-in">
+            <AndroidMascot />
+          </div>
+          
+          <div className="flex-1">
+            <div className="flex flex-wrap gap-3 md:gap-5 mt-4 justify-start">
+              {orderedSkills.map(skill => (
+                <img 
+                  key={skill.name}
+                  src={skill.icon} 
+                  alt={skill.name} 
+                  className="h-8 md:h-10 w-auto transition-all cursor-crosshair transform hover:scale-110 hover:-translate-y-1 hover:shadow-[0_4px_10px_rgba(255,0,255,0.5)]" 
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
