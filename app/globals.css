@@ -1,0 +1,594 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Fallout Terminal theme - Retro CRT style */
+:root {
+  --background: oklch(0.08 0.01 150);
+  --foreground: oklch(0.75 0.15 150);
+  --card: oklch(0.12 0.01 150);
+  --card-foreground: oklch(0.75 0.15 150);
+  --popover: oklch(0.12 0.01 150);
+  --popover-foreground: oklch(0.75 0.15 150);
+  --primary: oklch(0.7 0.2 150);
+  --primary-foreground: oklch(0.08 0.01 150);
+  --secondary: oklch(0.15 0.01 150);
+  --secondary-foreground: oklch(0.75 0.15 150);
+  --muted: oklch(0.18 0.01 150);
+  --muted-foreground: oklch(0.5 0.1 150);
+  --accent: oklch(0.65 0.18 200);
+  --accent-foreground: oklch(0.08 0.01 150);
+  --destructive: oklch(0.55 0.2 30);
+  --destructive-foreground: oklch(0.98 0.005 150);
+  --border: oklch(0.3 0.05 150);
+  --input: oklch(0.2 0.01 150);
+  --ring: oklch(0.7 0.2 150);
+  --chart-1: oklch(0.7 0.2 150);
+  --chart-2: oklch(0.65 0.18 200);
+  --chart-3: oklch(0.75 0.22 170);
+  --chart-4: oklch(0.6 0.15 180);
+  --chart-5: oklch(0.68 0.18 160);
+  --radius: 0.25rem;
+  --sidebar: oklch(0.12 0.01 150);
+  --sidebar-foreground: oklch(0.75 0.15 150);
+  --sidebar-primary: oklch(0.7 0.2 150);
+  --sidebar-primary-foreground: oklch(0.08 0.01 150);
+  --sidebar-accent: oklch(0.15 0.01 150);
+  --sidebar-accent-foreground: oklch(0.75 0.15 150);
+  --sidebar-border: oklch(0.3 0.05 150);
+  --sidebar-ring: oklch(0.7 0.2 150);
+}
+
+.dark {
+  --background: oklch(0.12 0.01 240);
+  --foreground: oklch(0.85 0.08 150);
+  --card: oklch(0.15 0.01 240);
+  --card-foreground: oklch(0.85 0.08 150);
+  --popover: oklch(0.15 0.01 240);
+  --popover-foreground: oklch(0.85 0.08 150);
+  --primary: oklch(0.65 0.18 150);
+  --primary-foreground: oklch(0.12 0.01 240);
+  --secondary: oklch(0.2 0.01 240);
+  --secondary-foreground: oklch(0.85 0.08 150);
+  --muted: oklch(0.18 0.01 240);
+  --muted-foreground: oklch(0.55 0.05 150);
+  --accent: oklch(0.6 0.15 220);
+  --accent-foreground: oklch(0.12 0.01 240);
+  --destructive: oklch(0.55 0.2 30);
+  --destructive-foreground: oklch(0.98 0.005 240);
+  --border: oklch(0.25 0.02 150);
+  --input: oklch(0.2 0.01 240);
+  --ring: oklch(0.65 0.18 150);
+  --chart-1: oklch(0.65 0.18 150);
+  --chart-2: oklch(0.6 0.15 220);
+  --chart-3: oklch(0.7 0.2 180);
+  --chart-4: oklch(0.55 0.15 200);
+  --chart-5: oklch(0.6 0.12 160);
+  --sidebar: oklch(0.15 0.01 240);
+  --sidebar-foreground: oklch(0.85 0.08 150);
+  --sidebar-primary: oklch(0.65 0.18 150);
+  --sidebar-primary-foreground: oklch(0.12 0.01 240);
+  --sidebar-accent: oklch(0.2 0.01 240);
+  --sidebar-accent-foreground: oklch(0.85 0.08 150);
+  --sidebar-border: oklch(0.25 0.02 150);
+  --sidebar-ring: oklch(0.65 0.18 150);
+}
+
+@theme inline {
+  /* Actualizando fuentes a Pixelify Sans para mejor legibilidad */
+  --font-sans: "Pixelify Sans", "MS Sans Serif", "Arial", sans-serif;
+  --font-mono: "Pixelify Sans", "Courier New", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply text-foreground;
+    /* Adding CRT screen effects and Ichiki/Lain background grid */
+    position: relative;
+    background-color: #050505;
+    background-image: 
+      radial-gradient(circle, rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px, 40px 40px, 40px 40px;
+    background-position: 0 0;
+    animation: grid-scroll 4s linear infinite;
+  }
+
+  /* CRT Screen overlay effects: Scanlines */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9998;
+    animation: scanlines 8s linear infinite;
+  }
+
+  /* CRT flicker and Vignette */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.4) 100%), rgba(18, 16, 16, 0.05);
+    opacity: 1;
+    pointer-events: none;
+    z-index: 9997;
+    animation: flicker 0.15s infinite;
+  }
+
+  /* Moving scanline bar */
+  .crt-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 255, 255, 0.03) 50%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 9999;
+    animation: scanbar 10s linear infinite;
+  }
+}
+
+/* Retro CRT animations */
+@keyframes grid-scroll {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    /* Mueve la cuadrícula del fondo en diagonal (encaja con los múltiplos de 20 y 40) */
+    background-position: -40px 40px, -40px 40px, -40px 40px;
+  }
+}
+
+@keyframes scanlines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes scanbar {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.27861;
+  }
+  5% {
+    opacity: 0.34769;
+  }
+  10% {
+    opacity: 0.23604;
+  }
+  15% {
+    opacity: 0.90626;
+  }
+  20% {
+    opacity: 0.18128;
+  }
+  25% {
+    opacity: 0.83891;
+  }
+  30% {
+    opacity: 0.65583;
+  }
+  35% {
+    opacity: 0.67807;
+  }
+  40% {
+    opacity: 0.26559;
+  }
+  45% {
+    opacity: 0.84693;
+  }
+  50% {
+    opacity: 0.96019;
+  }
+  55% {
+    opacity: 0.08594;
+  }
+  60% {
+    opacity: 0.20313;
+  }
+  65% {
+    opacity: 0.71988;
+  }
+  70% {
+    opacity: 0.53455;
+  }
+  75% {
+    opacity: 0.37288;
+  }
+  80% {
+    opacity: 0.71428;
+  }
+  85% {
+    opacity: 0.70419;
+  }
+  90% {
+    opacity: 0.7003;
+  }
+  95% {
+    opacity: 0.36108;
+  }
+  100% {
+    opacity: 0.24387;
+  }
+}
+
+@keyframes textShadow {
+  0% {
+    text-shadow: 0.4389924193300864px 0 1px rgba(0, 255, 100, 0.5), -0.4389924193300864px 0 1px rgba(0, 150, 255, 0.3),
+      0 0 3px;
+  }
+  5% {
+    text-shadow: 2.7928974010788217px 0 1px rgba(0, 255, 100, 0.5), -2.7928974010788217px 0 1px rgba(0, 150, 255, 0.3),
+      0 0 3px;
+  }
+  10% {
+    text-shadow: 0.02956275843481219px 0 1px rgba(0, 255, 100, 0.5), -0.02956275843481219px 0 1px rgba(0, 150, 255, 0.3),
+      0 0 3px;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* CRT glow effect for text */
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(0, 255, 100, 0.8), 0 0 20px rgba(0, 255, 100, 0.5), 0 0 30px rgba(0, 255, 100, 0.3), 0 0
+      40px rgba(0, 255, 100, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(0, 255, 100, 1), 0 0 25px rgba(0, 255, 100, 0.7), 0 0 35px rgba(0, 255, 100, 0.5), 0 0
+      45px rgba(0, 255, 100, 0.3);
+  }
+}
+
+/* Efecto de parpadeo para imágenes CRT */
+@keyframes crt-flicker {
+  0% {
+    opacity: 0.9;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.97;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.94;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+/* Adding Windows 90s style pulse animation for loader */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Efecto de panel CRT individual */
+.crt-panel:hover {
+  background-color: #050505 !important;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.05) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.05) 50%, transparent 50%);
+  background-size: 4px 4px;
+  animation: local-flicker 0.15s steps(2) infinite alternate !important;
+}
+
+@keyframes local-flicker {
+  0% { box-shadow: inset 0 0 50px rgba(0,255,255,0.1); }
+  100% { box-shadow: inset 0 0 50px rgba(255,0,255,0.2); opacity: 0.95; }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+/* Terminal glow animation */
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* Retro terminal glass effect */
+.glass {
+  background: rgba(0, 255, 100, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 100, 0.2);
+  box-shadow: inset 0 0 20px rgba(0, 255, 100, 0.05), 0 0 20px rgba(0, 255, 100, 0.1);
+}
+
+/* CRT scanline overlay */
+.crt-overlay {
+  position: relative;
+}
+
+.crt-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    transparent 1px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Updated grid pattern for retro terminal */
+.grid-pattern {
+  background-image: linear-gradient(to right, rgba(0, 255, 100, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 100, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Updated dot pattern for retro terminal */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(0, 255, 100, 0.15) 1px, transparent 1px);
+  background-size: 15px 15px;
+}
+
+/* Retro terminal glow effects */
+.terminal-glow {
+  text-shadow: 0 0 10px rgba(0, 255, 100, 0.8), 0 0 20px rgba(0, 255, 100, 0.5), 0 0 30px rgba(0, 255, 100, 0.3);
+}
+
+.terminal-glow-blue {
+  text-shadow: 0 0 10px rgba(0, 150, 255, 0.8), 0 0 20px rgba(0, 150, 255, 0.5), 0 0 30px rgba(0, 150, 255, 0.3);
+}
+
+/* Retro box glow */
+.box-glow {
+  box-shadow: 0 0 10px rgba(0, 255, 100, 0.3), 0 0 20px rgba(0, 255, 100, 0.2), inset 0 0 10px rgba(0, 255, 100, 0.1);
+}
+
+.box-glow-blue {
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.3), 0 0 20px rgba(0, 150, 255, 0.2), inset 0 0 10px rgba(0, 150, 255, 0.1);
+}
+
+/* Retro button styles */
+.retro-button {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 2px solid currentColor;
+  box-shadow: 0 0 10px rgba(0, 255, 100, 0.5), inset 0 0 10px rgba(0, 255, 100, 0.2);
+  transition: all 0.3s ease;
+}
+
+.retro-button:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 100, 0.8), inset 0 0 20px rgba(0, 255, 100, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Agregando efecto CRT para imágenes de proyectos */
+.crt-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0px,
+    transparent 1px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.2) 3px
+  );
+  pointer-events: none;
+  z-index: 2;
+  animation: scanlines 8s linear infinite;
+}
+
+.crt-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 100, 0.03);
+  pointer-events: none;
+  z-index: 1;
+  animation: flicker 0.3s infinite;
+}
+
+.crt-flicker {
+  animation: crt-flicker 4s ease-in-out infinite;
+}
+
+/* Adding loading bar animation for component loaders */
+@keyframes loading-bar {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 2s ease-in-out infinite;
+}
