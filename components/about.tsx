@@ -1,6 +1,7 @@
 "use client"
 
 import { Code2, Smartphone, Server, TerminalSquare } from "lucide-react"
+import { AndroidMascot } from "./android-mascot"
 
 export function About() {
   const features = [
@@ -44,21 +45,27 @@ export function About() {
             [ BIO_DATA ]
           </div>
 
-          <div className="space-y-6 text-base md:text-lg font-bold text-gray-300 leading-relaxed mt-4">
-            <p>
-              Hola, soy <span className="bg-white text-black px-2 py-1 mx-1 border border-black uppercase tracking-widest">Juan David</span>.
-              Desarrollador de software basado en Colombia.
-            </p>
-            <p>
-              Mi enfoque principal y mayor pasión radica en el ecosistema <span className="text-cyan-400">Android</span>. Construyo interfaces fluidas y aplicaciones robustas utilizando tecnologías modernas como Kotlin y Jetpack Compose.
-            </p>
-            <p>
-              No le temo a asomarme al servidor; construyo arquitecturas de backend sólidas y seguras con <span className="text-fuchsia-500">Spring Boot (Java)</span> para dar vida a los sistemas desde las raíces.
-            </p>
-            <div className="border-l-4 border-cyan-400 pl-4 mt-6 py-2 bg-gray-900/50">
-              <p className="text-cyan-400 text-sm md:text-base italic uppercase tracking-wider">
-                "Entusiasta del código limpio, arquitectura MVVM y usuario fiel de Arch Linux."
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 mt-6 overflow-hidden">
+            <div className="space-y-6 text-base md:text-lg font-bold text-gray-300 leading-relaxed flex-1 order-2 lg:order-1">
+              <p>
+                Hola, soy <span className="bg-white text-black px-2 py-1 mx-1 border border-black uppercase tracking-widest">Juan David</span>.
+                Desarrollador de software basado en Colombia.
               </p>
+              <p>
+                Mi enfoque principal y mayor pasión radica en el ecosistema <span className="text-cyan-400">Android</span>. Construyo interfaces fluidas y aplicaciones robustas utilizando tecnologías modernas como Kotlin y Jetpack Compose.
+              </p>
+              <p>
+                No le temo a asomarme al servidor; construyo arquitecturas de backend sólidas y seguras con <span className="text-fuchsia-500">Spring Boot (Java)</span> para dar vida a los sistemas desde las raíces.
+              </p>
+              <div className="border-l-4 border-cyan-400 pl-4 mt-6 py-2 bg-gray-900/50">
+                <p className="text-cyan-400 text-sm md:text-base italic uppercase tracking-wider">
+                  "Entusiasta del código limpio, arquitectura MVVM y usuario fiel de Arch Linux."
+                </p>
+              </div>
+            </div>
+            
+            <div className="lg:order-2 shrink-0 animate-fade-in order-1">
+              <AndroidMascot />
             </div>
           </div>
         </div>
