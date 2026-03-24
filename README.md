@@ -1,6 +1,4 @@
-# 🔥 JuanD-coder: Portfolio 2026
-
-![Portfolio Banner](./banner.png)
+# My personal website (=w=)
 
 ### 📟 Software Developer // Android & Backend
 I am **Juan David** (JuanD-coder), a developer from **Colombia 🇨🇴** focused on building high-performance mobile apps and scalable backend systems.
